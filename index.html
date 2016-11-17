@@ -5,28 +5,26 @@
   </head>
 
   <body bgcolor ='black'>
-    <canvas id="canvas" width="1200" height="700"> </canvas>
+    <canvas id="canvas" width="2000" height="1000"> </canvas>
 
      <script>
       let canvas = document.getElementById("canvas");
       let context = canvas.getContext("2d");
-      const NUM_POINTS = 200;
+      const NUM_POINTS = 2000;
       const points = [];
-
       for(let i=0; i< NUM_POINTS; i++ ) {
         points.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           width: Math.random()*5,
           height: Math.random()*5,
-          xDelta: 4,
-          yDelta: 3,
-          color: 'green',
-
+          xDelta: 1,
+          yDelta: 1,
+          color: 'white',
         });
       }
       const draw = function() {
- 			//context.clearRect(0, 0, canvas.width, canvas.height);
+ 			context.clearRect(0, 0, canvas.width, canvas.height);
  			points.forEach( function(thePoint) {
  				context.fillStyle = thePoint.color;
  				context.fillRect(thePoint.x, thePoint.y, thePoint.width, thePoint.height);
@@ -42,10 +40,9 @@
  		};
     let animate = function() {
       draw();
-      setTimeout(animate, 10);
+      setTimeout(animate, 1);
     };
     animate();
-
      </script>
 
   </body>
